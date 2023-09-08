@@ -1,7 +1,8 @@
 public class TruthDriver {
     public static void main(String[] args){
         Truth truth = new Truth();
-        String s = "(p v q)->(p^q) = (p^ q)<->~q";
+        // String s = "(p v q)->(p^q) = (p^ q)<->~q";
+        String s = "p^q = ~(pvq)";
         boolean p = true;
         boolean q = false;
         boolean res = truth.solve(s, p, q, 'p','q');
