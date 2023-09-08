@@ -27,15 +27,20 @@ public class PostFix {
         switch(x){
             case '(':
                 return 0;
-            case '+':
-            case '-':
+            case '<':
                 return 1;
-            case '*':
-            case '/':
+            case '-':
                 return 2;
-            case '^':
+            case 'v':
+            case 'x':
                 return 3;
-
+            case '^':
+                return 4;
+            case '!':
+            case '~':
+                return 5;
+            case '=':
+                return 6;
         }
         return -1;
     }
@@ -44,6 +49,8 @@ public class PostFix {
         for(int i = 0; i < exp.length(); i++){
             char x = exp.charAt(i);
             switch(x){
+                case ' ': //skip if has space
+                    break;
                 case '(':
                     stack.push(x);
                     break;
@@ -54,10 +61,12 @@ public class PostFix {
                     }
                     break;
                 default:
-                    if(isAlphaNum(x)){
+                    int j;
+                    if( (j = isOperator(x)) == -1){
                         updateExpression(x);
                     }
                     else{
+                        i+=j;   //skip characters
                         while(checkPriority(stack.peek()) >= checkPriority(x)){
                             updateExpression(stack.pop());
                         }
@@ -74,8 +83,21 @@ public class PostFix {
         return newExpression;
     }
 
-    private boolean isAlphaNum(char x){
-        boolean flag = Character.isDigit(x);
-        return flag;
+    private int isOperator(char x){
+        switch(x){
+            case 'x': //xor
+                return 2; //skip 3 characters 
+            case '!':   //negation
+            case '~':   //negation
+            case '^':   //or
+            case 'v':   //and
+            case '=':   //compare
+                return 0;
+            case '-':   //->
+                return 1; //skip 2 characters
+            case '<':   //<->
+                return 2;   //skip 3 characters
+        }
+        return -1;
     }
 }
