@@ -1,3 +1,4 @@
+package fileTruth;
 public class StackBool {
     private boolean[] stack;
     private int top;

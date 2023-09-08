@@ -1,3 +1,5 @@
+import fileTruth.Truth;
+
 public class TruthDriver {
     public static void main(String[] args){
         Truth truth = new Truth();

@@ -1,3 +1,4 @@
+package fileTruth;
 public class StackChar{
     private char[] stack;
     private int top;

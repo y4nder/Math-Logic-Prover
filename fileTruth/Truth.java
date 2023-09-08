@@ -1,3 +1,4 @@
+package fileTruth;
 public class Truth {
     private PostFix post;
     private StackBool stack;

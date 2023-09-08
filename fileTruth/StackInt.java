@@ -1,3 +1,4 @@
+package fileTruth;
 public class StackInt {
     private int[] stack;
     private int top;
