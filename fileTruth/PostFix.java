@@ -28,19 +28,19 @@ public class PostFix {
         switch(x){
             case '(':
                 return 0;
-            case '<':
+            case '=':
                 return 1;
-            case '-':
+            case '<':
                 return 2;
+            case '-':
+                return 3;
             case 'v':
             case 'x':
-                return 3;
-            case '^':
                 return 4;
+            case '^':
+                return 5;
             case '!':
             case '~':
-                return 5;
-            case '=':
                 return 6;
         }
         return -1;

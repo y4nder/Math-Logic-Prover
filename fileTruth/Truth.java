@@ -50,6 +50,7 @@ public class Truth {
         a = stack.pop();
         b = stack.pop();
         result = exclusiveDisjunction(b, a);
+        // System.out.println("    " + b + " xor " + a + " is: " + result);
         stack.push(result);
     }
 
@@ -57,6 +58,7 @@ public class Truth {
         boolean a, result;
         a = stack.pop();
         result = negation(a);
+        // System.out.println("    not " + a + " is: " + result);
         stack.push(result);
     }
 
@@ -65,6 +67,7 @@ public class Truth {
         a = stack.pop();
         b = stack.pop();
         result = conjunction(b, a);
+        // System.out.println("    " + b + " and " + a + " is: " + result);
         stack.push(result);
     }
 
@@ -73,6 +76,7 @@ public class Truth {
         a = stack.pop();
         b = stack.pop();
         result = disjunction(b, a);
+        // System.out.println("    " + b + " or " + a + " is: " + result);
         stack.push(result);
     }
 
@@ -81,6 +85,7 @@ public class Truth {
         a = stack.pop();
         b = stack.pop();
         result = conditional(b, a);
+        // System.out.println("    if " + b + " then " + a + " is: " + result);
         stack.push(result);
     }
 
@@ -89,6 +94,7 @@ public class Truth {
         a = stack.pop();
         b = stack.pop();
         result = biconditional(b, a);
+        // System.out.println("    if and only if " + b + " then " + a + ": " + result);
         stack.push(result);
     }
 
@@ -97,6 +103,7 @@ public class Truth {
         a = stack.pop();
         b = stack.pop();
         result = equal(b, a);
+        // System.out.println("    " + b + " equal to " + a + " is: " + result );
         stack.push(result);
     }
 
